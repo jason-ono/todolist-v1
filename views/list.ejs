@@ -5,6 +5,25 @@
     <title></title>
   </head>
   <body>
-    <h1>It's <%= dayType %>.</h1>
+    <% if (dayType === "weekend"){ %>
+      <h1 style="color: red">It's <%= dayType %>.</h1>
+    <% } else { %>
+      <h1>It's <%= dayType %>.</h1>
+    <% } %>
+
+    <ul>
+      <% for (var i=0; i<itemList.length;i++){ %>
+        <li> <%= itemList[i] %> </li>
+      <% } %>
+
+    </ul>
+
+    <form action="/" method="post">
+      <label for="field">Task: </label>
+      <input id="field" type="text" name="taskName">
+      <button type="submit">Submit</button>
+    </form>
+
+
   </body>
 </html>
