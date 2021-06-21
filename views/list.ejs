@@ -2,27 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <% if (dayType === "weekend"){ %>
-      <h1 style="color: red">It's <%= dayType %>.</h1>
-    <% } else { %>
-      <h1>It's <%= dayType %>.</h1>
-    <% } %>
 
-    <ul>
+    <div class="box" id="heading">
+      <h1>It's <%= listTitle %>.</h1>
+    </div>
+
+    <div class="box">
       <% for (var i=0; i<itemList.length;i++){ %>
-        <li> <%= itemList[i] %> </li>
+        <div class="item">
+          <input type="checkbox">
+          <p> <%= itemList[i] %> </p>
+        </div>
       <% } %>
 
-    </ul>
+      <form action="/" method="post">
+        <input type="text" name="taskName" placeholder="New Task">
+        <button type="submit"
+                name="list"
+                value=<%= listTitle %>>
+                +
+        </button>
+      </form>
+    </div>
 
-    <form action="/" method="post">
-      <label for="field">Task: </label>
-      <input id="field" type="text" name="taskName">
-      <button type="submit">Submit</button>
-    </form>
+
 
 
   </body>
