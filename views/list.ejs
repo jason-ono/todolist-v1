@@ -1,36 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
+<%- include("header") -%>
+<div class="box" id="heading">
+  <h1>It's <%= listTitle %>.</h1>
+</div>
 
-    <div class="box" id="heading">
-      <h1>It's <%= listTitle %>.</h1>
-    </div>
+<div class="box">
+  <% for (var i=0; i<itemList.length;i++){ %>
+  <div class="item">
+    <input type="checkbox">
+    <p> <%= itemList[i] %> </p>
+  </div>
+  <% } %>
 
-    <div class="box">
-      <% for (var i=0; i<itemList.length;i++){ %>
-        <div class="item">
-          <input type="checkbox">
-          <p> <%= itemList[i] %> </p>
-        </div>
-      <% } %>
-
-      <form action="/" method="post">
-        <input type="text" name="taskName" placeholder="New Task">
-        <button type="submit"
-                name="list"
-                value=<%= listTitle %>>
-                +
-        </button>
-      </form>
-    </div>
-
-
-
-
-  </body>
-</html>
+  <form action="/" method="post">
+    <input type="text" name="taskName" placeholder="New Task">
+    <button type="submit" name="list" value=<%= listTitle %>>
+      +
+    </button>
+  </form>
+</div>
+<%- include("footer") -%>

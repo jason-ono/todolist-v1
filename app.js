@@ -5,6 +5,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// self-made module
+const date = require(__dirname + "/date.js");
+
+let sup = date.sup();
+let myDate = date.getDate();
+
 const app = express();
 
 // integrating EJS
@@ -13,6 +19,7 @@ const app = express();
 // storage for all tasks
 var items = [];
 var workItems = [];
+
 
 // this is necessary to start parsing the body of POST request
 app.use(bodyParser.urlencoded({extended: true}));
